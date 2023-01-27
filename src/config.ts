@@ -22,6 +22,7 @@ export type Config = {
   saveEveryMins: number;
   enableGeofences: boolean;
   geofences: GeofenceConfig[];
+  maxAccuracy: number;
   speedLimit: number;
   speedPreLimit: number;
   overspeedActivityFilter: boolean;

@@ -95,6 +95,12 @@ MonoUtils.wk.event.subscribe<PositionEvent>('sensor-gps', (ev) => {
   const data = ev.getData();
   const speed = data?.speed * 3.6 || -1;
 
+  const maxAccuracy = conf.get('maxAccuracy', 0);
+  if (maxAccuracy > 0 && data.accuracy > maxAccuracy) {
+    platform.log(`position omitted because accuracy of ${data.accuracy.toFixed(2)} is greater than the limit (${maxAccuracy.toFixed(2)})`);
+    return;
+  }
+
   const impossibleRules = conf.get('impossible', []);
   for (const impRule of impossibleRules) {
     // for now we only check for speed, so if no speed is given we ignore the rule

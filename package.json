@@ -122,6 +122,26 @@
         "input": true
       },
       {
+        "label": "Área máxima aceitável para considerar uma posição do GPS",
+        "tooltip": "Se o GPS tiver uma posição com área maior, essa posição não é processada. 0 = sem límite. Normalmente, no exterior, o límite normal é de 10 metros (radio de 10 metros)",
+        "suffix": "metros",
+        "mask": false,
+        "tableView": false,
+        "defaultValue": 0,
+        "delimiter": false,
+        "requireDecimal": false,
+        "inputFormat": "plain",
+        "truncateMultipleSpaces": false,
+        "key": "maxAccuracy",
+        "conditional": {
+          "show": true,
+          "when": "highAccuracy",
+          "eq": "true"
+        },
+        "type": "number",
+        "input": true
+      },
+      {
         "label": "Habilitar geocercas?",
         "tableView": false,
         "key": "enableGeofences",
