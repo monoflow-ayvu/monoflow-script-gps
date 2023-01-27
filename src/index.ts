@@ -1,5 +1,5 @@
 import * as MonoUtils from "@fermuch/monoutils";
-import { anyTagMatches, ensureForm, getGeofenceManager, setUrgentNotification } from "./utils";
+import { anyTagMatches, ensureForm, getGeofenceManager, setUrgentNotification, wakeup } from "./utils";
 import { GenericEvent, PositionEvent, SpeedEvent } from "./events";
 import { conf } from "./config";
 import { ACTION_OK_OVERSPEED } from "./constants";
@@ -11,6 +11,7 @@ import wellknown, { GeoJSONGeometry } from "wellknown";
 import { onOverspeed } from "./overspeed";
 import { onGefence } from "./geofence";
 import { onPosition } from "./position";
+import { currentLogin } from "@fermuch/monoutils";
 
 const originalFormStates: {
   [id: string]: {
@@ -82,6 +83,13 @@ messages.on('onLogout', () => {
 
 messages.on('onLogin', (loginId) => {
   loadGeofences(loginId);
+});
+
+messages.on('onPeriodic', () => {
+  // keep screen on while logged in so we can get GPS positions
+  if (currentLogin()) {
+    wakeup();
+  }
 })
 
 MonoUtils.wk.event.subscribe<SpeedEvent>('sensor-speed', (ev) => {
