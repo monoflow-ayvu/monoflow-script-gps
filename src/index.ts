@@ -85,13 +85,6 @@ messages.on('onLogin', (loginId) => {
   loadGeofences(loginId);
 });
 
-messages.on('onPeriodic', () => {
-  // keep screen on while logged in so we can get GPS positions
-  if (currentLogin()) {
-    wakeup();
-  }
-})
-
 MonoUtils.wk.event.subscribe<SpeedEvent>('sensor-speed', (ev) => {
   const data = ev.getData()
   const speed = data.speed * 3.6 || -1;
