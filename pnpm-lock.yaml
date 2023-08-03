@@ -4036,7 +4036,7 @@ packages:
       jstimezonedetect: 1.0.7
       jwt-decode: 3.1.2
       lodash: 4.17.21
-      moment: 2.29.2
+      moment: 2.29.4
       moment-timezone: 0.5.34
       native-promise-only: 0.8.1
       quill: 2.0.0-dev.4
@@ -5332,11 +5332,11 @@ packages:
   /moment-timezone@0.5.34:
     resolution: {integrity: sha512-3zAEHh2hKUs3EXLESx/wsgw6IQdusOT8Bxm3D9UrHPQR7zlMmzwybC8zHEM1tQ4LJwP7fcxrWr8tuBg05fFCbg==}
     dependencies:
-      moment: 2.29.2
+      moment: 2.29.4
     dev: false
 
-  /moment@2.29.2:
-    resolution: {integrity: sha512-UgzG4rvxYpN15jgCmVJwac49h9ly9NurikMWGPdVxm8GZD6XjkKPxDTjQQ43gtGgnV3X0cAyWDdP2Wexoquifg==}
+  /moment@2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
     dev: false
 
   /ms@2.1.2:
